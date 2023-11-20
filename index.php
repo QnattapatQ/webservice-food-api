@@ -131,10 +131,8 @@
     </div>
     
 
-
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <script src="main.js"></script>
+    <script src="script.js"></script>
 
     <script>
         var typed = new Typed('#topic', {

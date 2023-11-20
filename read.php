@@ -1,10 +1,10 @@
 <?php
-    include '../db.php';
+    include 'condata.php';
     try{
-        foreach($dbh->query('SELECT * from foods') as $row){
+        foreach($conndata->query('SELECT * from foods') as $row){
             print_r($row);
         }
-        $dbh = null;
+        $conndata = null;
     }catch(PDOException $e){
         print "Error!: " . $e->getMessage() . "</br>";
         die();

@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var searchInput = document.getElementById("search");
-    var showList = document.getElementById("show-list");
+    const searchInput = document.getElementById("search");
+    const showList = document.getElementById("show-list");
 
     searchInput.addEventListener("keyup", function() {
         var searchText = this.value;
         if (searchText !== "") {
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "action.php", true);
+            xhr.open("POST", "search.php", true);
             xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
             xhr.onreadystatechange = function() {

@@ -1,25 +1,3 @@
-<?php 
-
-    require_once 'config.php';
-
-    if (isset($_POST['submit'])) {
-        $province = $_POST['search'];
-        $sql = "SELECT * FROM foods WHERE provinceName = :province";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute(['province' => $province]);
-        $row = $stmt->fetch();
-    } else {
-        header("location: index.php");
-        exit();
-    }
-
-    if (empty($row)) {
-        header("location: notification.php");
-        exit();
-    }    
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,12 +12,6 @@
             background: linear-gradient(90deg,#e52e71,#ff8a00);
         }
 
-        .img-food {
-            object-fit: cover;
-            width: 50%;
-            height: 50%
-        }
-
         .box-detail {
             position: absolute;
             top: 50%;
@@ -51,6 +23,7 @@
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.3);
+            width: 350px;
         }
 
         .slider-thumb::before {
@@ -86,7 +59,6 @@
                 transform: translate3d(0,-3px,0) rotateZ(0.01deg);
             }
         }
-
     </style>
 </head>
 <body>
@@ -95,14 +67,8 @@
         <div class="row mt-5">
             <div class="col-5 mx-auto">
                 <div class="box-detail card shadow text-center p-2 rounded-3">
-                <h5 class="text-light"><?= $row['id'] ?>. อาหารประจำจังหวัด <strong><?= $row['provinceName'] ?></strong> คือ</h5>
-                    <div class="card-body">
-
-                        <img class="img-food" src="<?= $row['imgFood'] ?>" />
-                        <h5 class="mt-2 text-light">ชื่ออาหาร : <?= $row['nameFood'] ?></h5>
-
-                    </div>
-                    <a href="index.php" class="btn btn-danger">ย้อนกลับ</a>
+                    <h2 class="text-light">ไม่มีข้อมูล</h2>
+                    <a href="index.php" class="btn btn-danger mt-4">ย้อนกลับ</a>
                 </div>
             </div>
         </div>
