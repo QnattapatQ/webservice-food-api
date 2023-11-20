@@ -11,10 +11,10 @@
 
         if ($result) {
             foreach($result as $row) {
-                echo '<a class="list-group-item list-group-item-action border-1">' . $row['provinceName'] . '</a>';
+                echo '<a class="list-box list-group-item list-group-item-action border-1">' . $row['provinceName'] . '</a>';
             }
         } else {
-            echo '<p class="list-group-item border-1">No record.</p>';
+            echo '<p class="list-box list-group-item border-1">ไม่มีข้อมูล...</p>';
         }
     }
 
